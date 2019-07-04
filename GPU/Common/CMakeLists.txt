@@ -47,7 +47,13 @@ if(ALIGPU_BUILD_TYPE STREQUAL "O2")
   target_compile_definitions(${targetName} PRIVATE GPUCA_O2_LIB
                              GPUCA_TPC_GEOMETRY_O2 HAVE_O2HEADERS)
 
-  install(FILES ${HDRS_CINT} ${HDRS_INSTALL} DESTINATION include/GPU)
+ 	o2_add_test(${MODULE}
+ 		PUBLIC_LINK_LIBRARIES O2::${MODULE}
+ 		SOURCES ctest/testGPUsortCUDA.cu
+ 		COMPONENT_NAME GPU
+        LABELS gpu)
+  
+   install(FILES ${HDRS_CINT} ${HDRS_INSTALL} DESTINATION include/GPU)
 endif()
 
 if(ALIGPU_BUILD_TYPE STREQUAL "ALIROOT")
