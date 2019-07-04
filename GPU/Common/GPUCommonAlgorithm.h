@@ -14,7 +14,7 @@
 #ifndef GPUCOMMONALGORITHM_H
 #define GPUCOMMONALGORITHM_H
 
-#include "GPUDef.h"
+#include "GPUCommonDef.h"
 
 #if !defined(GPUCA_GPUCODE_DEVICE)
 #include <algorithm>
